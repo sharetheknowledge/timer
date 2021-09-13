@@ -5,9 +5,17 @@ class Timer{
         this.pauseButton=pauseButton;
 
         this.startButton.addEventListener('click',this.start);
+        this.pauseButton.addEventListener('click',this.pause);
     }
-    start(){
-        console.log('Time to start the timer!');
+    start=()=>{
+        this.tick();
+        this.timer=setInterval(this.tick,1000);
+    }
+    tick=()=>{
+        console.log('tick');
+    }
+    pause=()=>{
+        clearInterval(this.timer);
     }
 }
 
@@ -17,3 +25,5 @@ const pauseButton=document.querySelector('#pause');
 
 
 const timer=new Timer(durationInput,startButton,pauseButton);
+
+// timer.start();
